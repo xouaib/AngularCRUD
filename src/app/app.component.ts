@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularCrudPHP';
+  title = 'Angular 7 CRUD Demo Using PHP & MySQL';
 }
