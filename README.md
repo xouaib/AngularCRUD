@@ -44,6 +44,9 @@ npm install datatables.net-dt --save
 npm install @types/jquery --save-dev  
 npm install @types/datatables.net --save-dev  
 
+## Build PHP API for the current Angular Project
+https://github.com/xouaib/PHPAPI-Angular7
+
 
 ## Source Tutorial
 https://medium.com/ramsatt/angular-7-crud-part-1-project-creation-and-theme-integration-1f004dd09949
