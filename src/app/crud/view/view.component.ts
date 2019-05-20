@@ -17,21 +17,17 @@ export class ViewComponent implements OnInit {
   constructor(private crudService: CrudService, private router: Router) { }
 
   ngOnInit() {
-    this.loadProductsList();
+    this.loadProducts();
   }
 
-  // loadProducts() {
-  //   this.crudService.getProducts().subscribe(
-  //     productsList => {
-  //       this.products = productsList;
-  //       this.dataTable = $(this.Table.nativeElement);
-  //       setTimeout(() => { this.dataTable.DataTable(); }, 2000);
-  //     }
-  //   );
-  // }
-
-  loadProductsList() {
-    this.crudService.getProducts().subscribe(productList => this.products = productList);
+  loadProducts() {
+    this.crudService.getProducts().subscribe(
+      productsList => {
+        this.products = productsList;
+        this.dataTable = $(this.Table.nativeElement);
+        setTimeout(() => { this.dataTable.DataTable(); }, 2000);
+      }
+    );
   }
 
   getNavigation(link, id) {
