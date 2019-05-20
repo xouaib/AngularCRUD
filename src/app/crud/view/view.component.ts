@@ -24,7 +24,6 @@ export class ViewComponent implements OnInit {
   getProductsList() {
     return this.crudService.getProducts().subscribe(
       productsData => {
-
         this.ProductsList = productsData;
         this.dataTable = $(this.Table.nativeElement);
         setTimeout(() => { this.dataTable.DataTable(); }, 2000);
