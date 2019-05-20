@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CrudService } from 'src/app/services/crud.service';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/product';
 
 @Component({
   selector: 'app-view',
@@ -9,24 +10,26 @@ import { Router } from '@angular/router';
 })
 export class ViewComponent implements OnInit {
 
-  // declare var $;
-  public products: any = [];
-  @ViewChild('productsTable') Table;
+  @ViewChild('productsTable') Table: { nativeElement: any; };
   public dataTable: any;
+  public ProductsList: Product[];
+  public errorMsg: any;
 
   constructor(private crudService: CrudService, private router: Router) { }
 
   ngOnInit() {
-    this.loadProducts();
+    this.getProductsList();
   }
 
-  loadProducts() {
-    this.crudService.getProducts().subscribe(
-      productsList => {
-        this.products = productsList;
+  getProductsList() {
+    return this.crudService.getProducts().subscribe(
+      productsData => {
+
+        this.ProductsList = productsData;
         this.dataTable = $(this.Table.nativeElement);
         setTimeout(() => { this.dataTable.DataTable(); }, 2000);
-      }
+      },
+      error => this.errorMsg = error
     );
   }
 

@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products; let i =index;">
+                    <tr *ngFor="let product of ProductsList; let i =index;">
                         <td>{{i + 1}}</td>
                         <td>{{product.p_name}}</td>
                         <td>{{product.p_description}}</td>
@@ -32,5 +32,8 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="row alert alert-warning alert-dismissible fade show" *ngIf="errorMsg">
+        <strong class="mr-1">Error occured ! </strong> {{errorMsg}}.
     </div>
 </div>
