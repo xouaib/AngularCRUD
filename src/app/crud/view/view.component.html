@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12 col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
-            <button class="btn btn-success" (click)="getNavigation('create', '')">Create New Product</button>
+            <button class="btn btn-success btn-sm float-right" (click)="getNavigation('create', '')">New product</button>
         </div>
     </div>
     <br>
@@ -24,9 +24,9 @@
                         <td>{{product.p_description}}</td>
                         <td>$ {{product.p_price}}</td>
                         <td>
-                            <button type="button" class="btn btn-success" (click)="getNavigation('view', product.p_id)">View</button>
-                            <button type="button" class="btn btn-warning" (click)="getNavigation('update', product.p_id)">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-primary btn-sm" (click)="getNavigation('view', product.p_id)"><i class="material-icons">visibility</i></button>
+                            <button type="button" class="btn btn-warning ml-1 btn-sm" (click)="getNavigation('update', product.p_id)"><i class="material-icons">create</i></button>
+                            <button type="button" class="btn btn-danger ml-1 btn-sm"><i class="material-icons">delete_sweep</i></button>
                         </td>
                     </tr>
                 </tbody>
