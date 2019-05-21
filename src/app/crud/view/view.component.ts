@@ -10,7 +10,7 @@ import { Product } from 'src/app/product';
 })
 export class ViewComponent implements OnInit {
 
-  @ViewChild('productsTable') Table: { nativeElement: any; };
+  @ViewChild('productsTable') Table;
   public dataTable: any;
   public ProductsList: Product[];
   public errorMsg: any;
