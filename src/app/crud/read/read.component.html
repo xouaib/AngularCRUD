@@ -1,3 +1,27 @@
-<p>
-  read works!
-</p>
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <h2>Product detail:</h2>
+        <div class="col-12 col-lg-12 col-md-12 sol-sm-12">
+            <table class="table table-striped">
+                <tr>
+                    <td>Name</td>
+                    <td>{{product['p_name']}}</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{product['p_description']}}</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>{{product['p_price']}}</td>
+                </tr>
+            </table>
+            <br>
+            <button class="btn btn-warning btn-sm" (click)="navigateTo('')"><i class="material-icons">keyboard_arrow_left</i></button>
+        </div>
+    </div>
+    <div class="row alert alert-warning alert-dismissible fade show" *ngIf="errorMsg">
+        <strong class="mr-1">Error occured ! </strong> {{errorMsg}}.
+    </div>
+</div>

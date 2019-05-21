@@ -18,8 +18,9 @@ export class CrudService {
       .pipe(retry(3), catchError(this.handleError));
   }
 
-  searchProductByID(productID: number) {
-    return this.httpClient.get(this.URL + 'search.php?id=' + productID);
+  searchProductByID(productID: number): Observable<Product> {
+    return this.httpClient.get<Product>(this.URL + 'search.php?id=' + productID)
+      .pipe(retry(3), catchError(this.handleError));
   }
 
   createNewProduct(product) {
