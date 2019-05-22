@@ -23,12 +23,12 @@ export class CrudService {
       .pipe(retry(3), catchError(this.handleError));
   }
 
-  createNewProduct(product) {
-    return this.httpClient.get(this.URL + 'create.php', product);
+  createProduct(product) {
+    return this.httpClient.post(this.URL + 'create.php', product);
   }
 
   updateProduct(product) {
-    return this.httpClient.get(this.URL + 'create.php', product);
+    return this.httpClient.get(this.URL + 'update.php', product);
   }
 
   deleteProductByID(productID: number) {

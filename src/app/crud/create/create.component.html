@@ -1,3 +1,42 @@
-<p>
-  create works!
-</p>
+<div class="container-fluid">
+    <br>
+    <h2>Create new product:</h2>
+    <div class="row">
+        <div class="col-12 col-lg-12 col-md-12 sol-sm-12">
+            <form [formGroup]="productForm" (ngSubmit)="createProduct(productForm.value)" method="POST">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Name" formControlName="productName">
+                    <div class="alert-danger" *ngIf="!productForm.controls['productName'].valid && (productForm.controls['productName'].touched)">
+                        <div [hidden]="!productForm.controls['productName'].errors.required">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Desc</label>
+                    <input type="text" class="form-control" placeholder="Description" formControlName="productDescription">
+                    <div class="alert-danger" *ngIf="!productForm.controls['productDescription'].valid && (productForm.controls['productDescription'].touched)">
+                        <div [hidden]="!productForm.controls['productDescription'].errors.required">
+                            Description is required.
+                        </div>
+                        <div [hidden]="!productForm.controls['productDescription'].errors.minlength">
+                            Description must be have 10 character length.
+                        </div>
+                        <div [hidden]="!productForm.controls['productDescription'].errors.maxlength">
+                            Description must be have 1000 character length.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="number" class="form-control" placeholder="price" formControlName="productPrice">
+                    <div class="alert-danger" *ngIf="!productForm.controls['productPrice'].valid && (productForm.controls['productPrice'].touched)">
+                        <div [hidden]="!productForm.controls['productPrice'].errors.required">
+                            Price is required.
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Submit</button>
+            </form>
+        </div>
