@@ -23,8 +23,8 @@ export class CrudService {
       .pipe(retry(3), catchError(this.handleError));
   }
 
-  createProduct(product) {
-    return this.httpClient.post(this.URL + 'create.php', product);
+  createProduct(product): Observable<any> {
+    return this.httpClient.post(this.URL + 'create.php', product).pipe(retry(3), catchError(this.handleError));
   }
 
   updateProduct(product) {

@@ -32,6 +32,7 @@ export class ViewComponent implements OnInit {
     );
   }
 
+
   getNavigation(link, id) {
     if (id === '') {
       this.router.navigate([link]);

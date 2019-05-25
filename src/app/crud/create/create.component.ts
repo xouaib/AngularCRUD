@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class CreateComponent implements OnInit {
 
   productForm: FormGroup;
+  resultMsg: [];
+  t: string;
   constructor(private fb: FormBuilder, private crudService: CrudService, private router: Router) { }
 
   ngOnInit() {
@@ -31,10 +33,11 @@ export class CreateComponent implements OnInit {
     productData.append('description', values.productDescription);
     productData.append('price', values.productPrice);
 
-    this.crudService.createProduct(values).subscribe(
+    this.crudService.createProduct(productData).subscribe(
+      resultmsg => this.resultMsg = resultmsg
     );
-        // result => {
-        // this.router.navigate(['']);
+    // result => {
+    // this.router.navigate(['']);
   }
 
 }
