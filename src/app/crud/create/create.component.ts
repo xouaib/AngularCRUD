@@ -12,7 +12,6 @@ export class CreateComponent implements OnInit {
 
   productForm: FormGroup;
   resultMsg: [];
-  t: string;
   constructor(private fb: FormBuilder, private crudService: CrudService, private router: Router) { }
 
   ngOnInit() {
@@ -36,8 +35,6 @@ export class CreateComponent implements OnInit {
     this.crudService.createProduct(productData).subscribe(
       resultmsg => this.resultMsg = resultmsg
     );
-    // result => {
-    // this.router.navigate(['']);
   }
 
 }

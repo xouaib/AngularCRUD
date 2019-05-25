@@ -27,12 +27,13 @@ export class CrudService {
     return this.httpClient.post(this.URL + 'create.php', product).pipe(retry(3), catchError(this.handleError));
   }
 
-  updateProduct(product) {
-    return this.httpClient.get(this.URL + 'update.php', product);
+  updateProduct(product): Observable<any> {
+    console.log(product);
+    return this.httpClient.post(this.URL + 'update.php', product).pipe(retry(3), catchError(this.handleError));
   }
 
   deleteProductByID(productID: number) {
-    return this.httpClient.get(this.URL + 'delete.php?id=' + productID);
+    return this.httpClient.get(this.URL + 'delete.php?id=' + productID).pipe(retry(3), catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
