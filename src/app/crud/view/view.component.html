@@ -27,14 +27,11 @@
                         <td>
                             <button type="button" class="btn btn-primary btn-sm" (click)="getNavigation('view', product.p_id)"><i class="material-icons">visibility</i></button>
                             <button type="button" class="btn btn-warning ml-1 btn-sm" (click)="getNavigation('update', product.p_id)"><i class="material-icons">create</i></button>
-                            <button type="button" class="btn btn-danger ml-1 btn-sm"><i class="material-icons">delete_sweep</i></button>
+                            <button type="button" class="btn btn-danger ml-1 btn-sm" (click)="deleteProduct(product.p_id)"><i class="material-icons">delete_sweep</i></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
-    <div class="row alert alert-warning alert-dismissible fade show" *ngIf="errorMsg">
-        <strong class="mr-1">Error occured ! </strong> {{errorMsg}}.
     </div>
 </div>

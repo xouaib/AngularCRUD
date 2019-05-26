@@ -25,15 +25,22 @@ export class ViewComponent implements OnInit {
     return this.crudService.getProducts().subscribe(
       productsData => {
         this.ProductsList = productsData;
-        // this.dataTable = $(this.Table.nativeElement);
-        // setTimeout(() => { this.dataTable.DataTable(); }, 2000);
+        this.dataTable = $(this.Table.nativeElement);
+        setTimeout(() => { this.dataTable.DataTable(); }, 2000);
       },
       error => this.errorMsg = error
     );
   }
 
+  deleteProduct(productID: number) {
+    this.crudService.deleteProductByID(productID).subscribe(
+      error => this.errorMsg = error
+    );
 
-  getNavigation(link, id) {
+    this.getProductsList();
+  }
+
+  getNavigation(link: string, id: string) {
     if (id === '') {
       this.router.navigate([link]);
     } else {
